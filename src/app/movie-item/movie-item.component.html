@@ -1,0 +1,5 @@
+<td><img [src]="movieData.poster_path" class="img-fluid w-100" alt=""></td>
+<td>{{movieData.title }}</td>
+<td>{{ movieData.overview }}</td>
+<td>{{movieData.release_date | date : 'M/d/yyyy'}}</td>
+<td [ngClass]=" movieData.stock_avaliable ? 'text-success':'text-danger' " >{{movieData.stock_avaliable | stock }}</td>

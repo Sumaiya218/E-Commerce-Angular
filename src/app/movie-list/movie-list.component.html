@@ -1,0 +1,16 @@
+<div class="pt-3 pb-5 border-bottom">
+    <table class="table table-striped border">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Overview</th>
+                <th scope="col">Release date</th>
+                <th scope="col">Stock availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-muted"  *ngFor="let movie of moviesList; let i = index" app-movie-item [movieData]="movie" ></tr> 
+        </tbody>
+    </table>
+</div>

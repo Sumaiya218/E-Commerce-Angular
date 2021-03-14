@@ -1,0 +1,38 @@
+<div class="py-5">
+    <form [formGroup]="formData"  (ngSubmit)="dateRegister()">
+        <div class="form-group">
+            <label for="name">Name*</label>
+            <input type="text" name="name" required formControlName="name" class="form-control" id="name"
+                aria-describedby="emailHelp">
+        </div>
+        <div *ngIf="
+        registerFormControls.Name.invalid &&
+        registerFormControls.Name.touched
+        ">
+            <div *ngIf="registerFormControls.Name">
+                <div class="alert alert-danger">this field is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address*</label>
+            <input type="email" required formControlName="email" name="email" class="form-control" id="email"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="username">User Name*</label>
+            <input type="text" required class="form-control" formControlName="username" name="username"
+                id="username" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" required class="form-control" formControlName="password" name="password"
+                id="password">
+        </div>
+        <div class="form-group">
+            <label for="confirmpassword">Password</label>
+            <input type="password" required class="form-control" formControlName="confirmpassword" name="confirmpassword"
+                id="confirmpassword">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
