@@ -11,7 +11,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   submitData(data:any)
   {
     console.log(data);

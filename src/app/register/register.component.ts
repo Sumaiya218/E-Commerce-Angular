@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,  FormControl , Validators } from '@angular/forms';
+import { NG_VALIDATORS, FormBuilder, FormGroup,  FormControl , Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,32 +7,22 @@ import { FormBuilder, FormGroup,  FormControl , Validators } from '@angular/form
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
-  formData : FormGroup;
-  constructor( private fb : FormBuilder) { 
-    this.formData = this.fb.group({
-      Name:["" , [Validators.required ]],
-      Email:["" , [Validators.required , Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-      userName:["" , [Validators.required , Validators.pattern("[^\s]*")]],
-      password:["" , [Validators.required , Validators.minLength(8)]],
-      confirmPassword:["" , [Validators.required , Validators.minLength(8)]]
-    },
-    {
-      Validator: this.passwordConfirming
-    }
-    )
+  dataOfUser:FormGroup | any;
+  constructor( private fb: FormBuilder) {}
+  ngOnInit(): void {
+    this.dataOfUser = this.fb.group({
+      firstName: ["" , [Validators.required ]],
+      Email: ["" , [Validators.required , Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      userName: ["" , [Validators.required , Validators.pattern("^[A-Za-z]*$")]],
+      password: ["" , [Validators.required , Validators.minLength(8)]],
+      confirmpassword: ["" , [Validators.required , Validators.minLength(8)]]
+    })
   }
   dateRegister(){
-    console.log(this.formData.value);
-  }
-  get registerFormControls (){
-    return this.formData.controls;
-  }
-  passwordConfirming(confirm:FormGroup) {    
-    return confirm.controls['pass'].value === confirm.controls['confirmPass'].value ? null : {'mismatch': true};
-  }
-  ngOnInit(): void {
-    
+    console.log(this.dataOfUser);
   }
 
+  get registerFormControls (){
+    return this.dataOfUser.controls;
+  }
 }

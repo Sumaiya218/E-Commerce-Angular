@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
-  moviesList: Array<object> = [
+  moviesList: Array<Movie> = [
     {
        "id":1,
        "original_language":"en",
@@ -55,6 +56,7 @@ export class MovieListComponent implements OnInit {
        "id":5,
        "original_language":"en",
        "overview":"The previously untold origins of Olaf, the innocent and insightful, summer-loving snowman are revealed as we follow Olaf’s first steps as he comes to life and searches for his identity in the snowy mountains outside Arendelle.",
+       "popularity":839.678,
        "poster_path":"https://image.tmdb.org/t/p/w342/hddzYJtfYYeMDOQVcH58n8m1W3A.jpg",
        "release_date":"Wed Mar 10 2020 02:00:00 GMT+0200 (Eastern European Standard Time)",
        "title":"Once Upon a Snowman",
