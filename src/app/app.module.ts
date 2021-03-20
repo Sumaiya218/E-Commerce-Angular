@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './card/card.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

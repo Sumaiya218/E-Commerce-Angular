@@ -1,3 +1,4 @@
+import { CardCounterService } from './../card-counter.service';
 import { ProductsService } from './../products.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   productsList :any = [];
-  
-  constructor( private productsListServices : ProductsService ) { }
+  counterVal: any ;
+  cardProducts: Array<object> = [];
+  activeItem:any;
+  constructor( private productsListServices : ProductsService , private counterService: CardCounterService ) { }
+
+  getCounterValue(e:any){ 
+    this.counterService.changeCounterValue(this.counterVal+1);
+    let id = e.target.id ;
+    this.activeItem = this.productsList.find((item:any) => id == item.id);
+    this.cardProducts.push(this.activeItem);
+    this.counterService.addProducts(this.cardProducts)
+  }
 
   ngOnInit(): void {
+    this.counterService.counter.subscribe(data => this.counterVal = data);
+    this.counterService.addedProducted.subscribe(data => this.cardProducts = data);
+
      this.productsListServices.getProductsData().subscribe(
       response => {
         this.productsList = response ;
@@ -22,7 +36,6 @@ export class HomeComponent implements OnInit {
       () => {
       console.log('complete ', "compelete");
       }
-     
     )
   }
   

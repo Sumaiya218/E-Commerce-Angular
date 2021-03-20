@@ -1,6 +1,6 @@
 <div class="py-5">
   <div class="row">
-    <div class="col-md-3 col-sm-12" *ngFor=" let product of productsList">
+    <div class="col-lg-3 col-md-4 col-sm-12" *ngFor=" let product of productsList">
       <div class="card mb-4 shadow-sm">
         <img class="card-img-top w-100 img-fluid" [src]="product.image" alt="Card image cap">
         <div class="card-body">
@@ -10,7 +10,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
               <a type="button" class="btn btn-sm btn-outline-secondary" [routerLink] = "['/home' , product.id]">View</a>
-              <a type="button" class="btn btn-sm btn-outline-secondary">Add</a>
+              <a type="button" [id]="product.id" class="btn btn-sm btn-outline-secondary" (click)="getCounterValue($event)" [routerLink] = "['/card' , product.id]">Add</a>
             </div>
           </div>
         </div>

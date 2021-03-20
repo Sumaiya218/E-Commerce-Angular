@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
-  isLoggedIn : boolean = false;
+  isLoggedIn : boolean = true;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<any | UrlTree> | Promise<any | UrlTree> | any | UrlTree {

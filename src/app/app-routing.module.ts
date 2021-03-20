@@ -15,10 +15,14 @@ const routes: Routes = [
   { path:"home" , children:[
     {path: "" , component: HomeComponent},
     {path:":id" , component: ViewProductComponent},
+    
   ] }, 
   {path:"back" , component:HomeComponent}, 
   {path:"moviesList" , component:MovieListComponent},
-  { path:"card" , component: CardComponent , canActivate : [AuthGuardGuard]},
+  { path:"card" , children:[
+    {path:":id" , component: CardComponent},
+  ], canActivate : [AuthGuardGuard]},
+  
   { path:"favourites" , component: FavouritesComponent},
   {path:"login" ,
   children: [
