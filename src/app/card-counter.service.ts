@@ -21,4 +21,6 @@ export class CardCounterService {
   addProducts( products:any){
     this.addedProducts.next(products)
   }
+
+
 }

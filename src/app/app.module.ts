@@ -19,6 +19,7 @@ import { CardComponent } from './card/card.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './favourites/store/addFavProduct.reduce';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { StoreModule } from '@ngrx/store';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule
+    StoreModule.forRoot( {favProducs:counterReducer} )
   ],
   providers: [],
   bootstrap: [AppComponent]

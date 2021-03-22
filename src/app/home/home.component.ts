@@ -11,15 +11,19 @@ export class HomeComponent implements OnInit {
   productsList :any = [];
   counterVal: any ;
   cardProducts: Array<object> = [];
-  activeItem:any;
+  activeItem:any = {};
+  countOfThisItem:any;
+  //quantity: number = 0;
   constructor( private productsListServices : ProductsService , private counterService: CardCounterService ) { }
 
   getCounterValue(e:any){ 
     this.counterService.changeCounterValue(this.counterVal+1);
     let id = e.target.id ;
     this.activeItem = this.productsList.find((item:any) => id == item.id);
-    this.cardProducts.push(this.activeItem);
-    this.counterService.addProducts(this.cardProducts)
+    if(!this.cardProducts.find((item:any) => id == item.id)){
+      this.cardProducts.push(this.activeItem);
+      this.counterService.addProducts(this.cardProducts);
+    }
   }
 
   ngOnInit(): void {

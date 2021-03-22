@@ -1,32 +1,30 @@
-<div class=" py-5">
-    <form #dataForm="ngForm" (ngSubmit)="submitData(dataForm)">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address*</label>
-            <input required ngModel #userEmail="ngModel" name="email" id="Email" type="text"
-                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp">
+<form #dataForm="ngForm" (ngSubmit)="submitData(dataForm)">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address*</label>
+        <input required ngModel #userEmail="ngModel" name="email" id="Email" type="text"
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+    </div>
+    <div *ngIf="dataForm.controls.email.errors && (dataForm.controls.email.touched || dataForm.submitted)">
+        <div *ngIf="dataForm.controls.email.errors.required">
+            <div class="alert alert-danger">Email is required</div>
         </div>
-        <div *ngIf="dataForm.controls.email.errors && (dataForm.controls.email.touched || dataForm.submitted)">
-            <div *ngIf="dataForm.controls.email.errors.required">
-                <div class="alert alert-danger">Email is required</div>
-            </div>
-            <div *ngIf="dataForm.controls.email.errors.pattern">
-                <div class="alert alert-danger">Email is invaled</div>
-            </div>
+        <div *ngIf="dataForm.controls.email.errors.pattern">
+            <div class="alert alert-danger">Email is invaled</div>
+        </div>
 
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password*</label>
+        <input required ngModel #userPass="ngModel" name="pass" id="pass" type="password" class="form-control"
+            id="exampleInputPassword1">
+    </div>
+    <div *ngIf="dataForm.controls.pass.errors && (dataForm.controls.pass.touched || dataForm.submitted)">
+        <div *ngIf="dataForm.controls.pass.errors.required">
+            <div class="alert alert-danger">Email is required</div>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password*</label>
-            <input required ngModel #userPass="ngModel" name="pass" id="pass" type="password" class="form-control"
-                id="exampleInputPassword1">
-        </div>
-        <div *ngIf="dataForm.controls.pass.errors && (dataForm.controls.pass.touched || dataForm.submitted)">
-            <div *ngIf="dataForm.controls.pass.errors.required">
-                <div class="alert alert-danger">Email is required</div>
-            </div>
 
-        </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
-    </form>
-    <div class="pt-5 text-center"> Don’t have account ? <a routerLink="/register">Register</a></div>
-</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Log In</button>
+</form>
+<div class="pt-5 text-center"> Don’t have account ? <a routerLink="/register">Register</a></div>

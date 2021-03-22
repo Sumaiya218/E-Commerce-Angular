@@ -19,9 +19,7 @@ const routes: Routes = [
   ] }, 
   {path:"back" , component:HomeComponent}, 
   {path:"moviesList" , component:MovieListComponent},
-  { path:"card" , children:[
-    {path:":id" , component: CardComponent},
-  ], canActivate : [AuthGuardGuard]},
+  { path:"card" , component:CardComponent , canActivate : [AuthGuardGuard]},
   
   { path:"favourites" , component: FavouritesComponent},
   {path:"login" ,

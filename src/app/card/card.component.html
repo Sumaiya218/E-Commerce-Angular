@@ -1,17 +1,19 @@
-<div class="py-5">
-    <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let product of cardProducts">
-            <div class="card mb-4 shadow-sm">
-                <img class="card-img-top w-100 img-fluid" [src]="product.image" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="pb-3">{{product.name}}</h5>
-                    <p class="card-text text-muted">{{product.description}}</p>
-                    <p class="card-text"><span class="text-info">Price:</span> {{product.price}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a type="button" class="btn btn-sm btn-outline-info">Remove</a>
-                        </div>
-                    </div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let product of cardProducts">
+        <div class="card mb-4 shadow-sm">
+            <img class="card-img-top w-100 img-fluid" [src]="product.image" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="pb-1">{{product.name}}</h5>
+                <p class="card-text text-muted">{{product.description}}</p>
+                <p class="card-text"><span class="text-info">Price:</span> {{product.price}}</p>
+                <div class="d-flex">
+                    <button class="btn btn-info text-light font-weight-bold"><span>-</span></button>
+                    <p class="px-3">0</p>
+                    <button class="btn btn-info text-light font-weight-bold"><span>+</span></button>
+                </div>
+                <div class="text-center mt-4">
+                    <a type="button" [id]="product.id" class="btn btn-sm btn-outline-info"
+                        (click)="removeFromCard($event)">Remove</a>
                 </div>
             </div>
         </div>
